@@ -18,23 +18,33 @@
 
   <header class="navbar">
     <div class="logo">
-      <img src="./images/logo.svg" alt="">
+      <img src="./images/logo.svg" alt="" width="62px">
     </div>
 
     <ul class="nav-menu">
-      <li class="drop-down"><a href="#">Features<img src="./images/icon-arrow-down.svg" class="arr-down" /><img
+      <li><a href="#">Features<img src="./images/icon-arrow-down.svg" class="arr-down" /><img
             src="./images/icon-arrow-up.svg" class="arr-up" /></a>
-        <div>
-          <a href="google.com">Todo List</a><br>
-          <a href="#">Calendar</a><br>
-          <a href="#">Reminders</a><br>
-          <a href="#">Planning</a><br>
+        <div class="dropdown">
+          <ul>
+            <li><img src="./images/icon-todo.svg" alt=""><a href="google.com">Todo List</a></li>
+            <li><img src="./images/icon-calendar.svg" alt=""><a href="#">Calendar</a></li>
+            <li><img src="./images/icon-reminders.svg" alt=""><a href="#">Reminders</a></li>
+            <li><img src="./images/icon-planning.svg" alt=""><a href="#">Planning</a></li>
+          </ul>
         </div>
       </li>
-      <li class="drop-down"><a href="#">Company
+
+      <li id="listTwo"><a href="#">Company
           <img src="./images/icon-arrow-down.svg" class="arr-down" />
-          <img src="./images/icon-arrow-up.svg" class="arr-up" />
-        </a></li>
+          <img src="./images/icon-arrow-up.svg" class="arr-up" /></a>
+        <div class="dropdown2">
+          <ul>
+            <li><a href="google.com">History</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+      </li>
       <li><a href="#">Careers</a></li>
       <li><a href="#">About</a></li>
     </ul>
@@ -49,8 +59,52 @@
       <img src="./images/icon-menu.svg" alt="menu" class="open-menu">
       <img src="./images/icon-close-menu.svg" alt="close-menu" class="close-menu">
     </div>
-
   </header>
+
+  <aside>
+    <div class="mobile-menu">
+      <!-- <div class="menu-bar">
+        <img src="./images/icon-menu.svg" alt="menu" class="open-menu">
+        <img src="./images/icon-close-menu.svg" alt="close-menu" class="close-menu">
+      </div> -->
+
+      <ul class="nav-menu">
+        <li><a href="#">Features<img src="./images/icon-arrow-down.svg" class="arr-down" /><img
+              src="./images/icon-arrow-up.svg" class="arr-up" /></a>
+          <div class="dropdown">
+            <ul>
+              <li><img src="./images/icon-todo.svg" alt=""><a href="google.com">Todo List</a></li>
+              <li><img src="./images/icon-calendar.svg" alt=""><a href="#">Calendar</a></li>
+              <li><img src="./images/icon-reminders.svg" alt=""><a href="#">Reminders</a></li>
+              <li><img src="./images/icon-planning.svg" alt=""><a href="#">Planning</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li id="listTwo"><a href="#">Company
+            <img src="./images/icon-arrow-down.svg" class="arr-down" />
+            <img src="./images/icon-arrow-up.svg" class="arr-up" /></a>
+          <div class="dropdown2">
+            <ul>
+              <li><a href="google.com">History</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li><a href="#">Careers</a></li>
+
+        <li><a href="#">About</a></li>
+      </ul>
+
+
+      <span class="btn nav-btn">
+        <a href="#">Login</a>
+        <a href="#" class="reg">Register</a>
+      </span>
+    </div>
+  </aside>
 
   <main>
     <div class="hero-text">
@@ -65,7 +119,7 @@
     </div>
 
     <div class="hero-img">
-      <img src="./images/image-hero-mobile.png" alt="hero-pic" class="hero-mobile" >
+      <img src="./images/image-hero-mobile.png" alt="hero-pic" class="hero-mobile">
       <img src="./images/image-hero-desktop.png" alt="hero-pic" class="hero-desktop">
 
     </div>
@@ -83,7 +137,48 @@
     Coded by <a href="#">VIC</a>.
   </div>
 
-  <script></script>
+  <script>
+    // Toggles the dropdown menu one
+    document.querySelector(".navbar ul li",).addEventListener("click",
+      function () {
+        this.classList.toggle("active");
+      }
+    );
+
+
+    // Toggles the dropdown menu two
+    document.querySelector(".navbar ul #listTwo").addEventListener("click",
+      function () {
+        this.classList.toggle("active");
+      }
+    );
+
+
+    // MOBILE //
+
+    // Tggle for menu-bar
+    document.querySelector(".navbar .menu-bar").addEventListener("click",
+      function () {
+        if (this.classList.toggle("active") == true) {
+          document.querySelector("aside").classList.add("active")
+        } else {
+          document.querySelector("aside").classList.remove("active")
+        };
+      }
+    );
+
+    document.querySelector(".mobile-menu ul li",).addEventListener("click",
+      function () {
+        this.classList.toggle("active")
+      }
+    );
+
+    document.querySelector(".mobile-menu ul #listTwo").addEventListener("click",
+      function () {
+        this.classList.toggle("active");
+      }
+    );
+  </script>
 </body>
 
 </html>
